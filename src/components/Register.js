@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import RegisterForm from './RegisterForm'
+import LoginForm from './LoginForm'
 import {registerUser} from '../actions'
+import {loginUser} from '../actions'
 
 
 class Register extends React.Component {
@@ -10,12 +12,16 @@ class Register extends React.Component {
         this.props.registerUser(formValues)
     }
 
-    getResponse() {
-        if (this.props.registerResponse !== null) {
+    onLogin = (formValues) => {
+        this.props.loginUser(formValues)
+    }
+
+    getRegisterResponse() {
+        if (this.props.registerResponse != null) {
             return (
                 <div>
                     <h5>
-                        Success!
+                        Successfully Registered!
                     </h5>
                     <div>
                         <p>
@@ -25,6 +31,30 @@ class Register extends React.Component {
                         
                         <div className="ui label">
                         <div className="detail"> {this.props.registerResponse.feedbackurl}</div>
+                        </div>
+                           
+                       
+                    </div>
+                </div>
+            )
+        }
+    }
+
+    getLoginResponse() {
+        if (this.props.loginResponse != null) {
+            return (
+                <div>
+                    <h5>
+                        Successful Search!
+                    </h5>
+                    <div>
+                        <p>
+                            Please copy and paste the following link to your
+                            resume/CV and a recruitor can click it to give feedback.
+                        </p>
+                        
+                        <div className="ui label">
+                        <div className="detail"> {this.props.loginResponse.feedbackurl}</div>
                         </div>
                            
                        
@@ -46,7 +76,16 @@ class Register extends React.Component {
 
             </RegisterForm>
             </div>
-            {this.getResponse()}
+            {this.getRegisterResponse()}
+            <div>
+            <h3>
+                Login
+            </h3>
+            <LoginForm onSubmit={this.onLogin}> 
+
+            </LoginForm>
+            </div>
+            {this.getLoginResponse()}
         </div>
         )
     }
@@ -55,9 +94,10 @@ class Register extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        registerResponse: state.feedback.response
+        registerResponse: state.feedback.registerResponse,
+        loginResponse: state.feedback.loginResponse
     }
 }
 
-export default connect(mapStateToProps, {registerUser}) (Register)
+export default connect(mapStateToProps, {registerUser, loginUser}) (Register)
 

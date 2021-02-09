@@ -1,5 +1,6 @@
 import {
-    REGISTER_USER
+    REGISTER_USER,
+    LOGIN_USER
 } from '../actions/types'
 
 // import _ from 'lodash'
@@ -7,7 +8,9 @@ import {
 export default (state={}, action) => {
     switch (action.type) {
         case REGISTER_USER:
-            return {...state, response : action.payload}
+            return {...state, registerResponse : action.payload}
+        case LOGIN_USER:
+            return {...state, loginResponse : action.payload}
         // case FETCH_STREAMS:
         //     return {...state, ..._.mapKeys(action.payload, 'id')}
         // case FETCH_STREAM:
