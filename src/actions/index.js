@@ -39,7 +39,7 @@ export const sendOptions = (formValues) => {
         console.log(formValues)
         const response = await feedback.get('/send', {
             params: {
-                option: formValues 
+                option: formValues  
             }
         })
         dispatch({type: SEND_OPTIONS, payload: response.data})

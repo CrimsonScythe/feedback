@@ -9,20 +9,39 @@ class Send extends React.Component {
         this.props.sendOptions(formValues)
     }
 
+    onSend = (formValues) => {
+        if (this.props.optionsResponse!=null) {
+            return <h1>
+                Response has been successfully sent!
+                You may close this page now.
+            </h1>
+        } else {
+            return (<OptionForm onSubmit={this.onSubmit}>
+
+                </OptionForm>)
+        }
+        
+    }
+
     render() {
+        
         return (
             <div>
-                <OptionForm onSubmit={this.onSubmit}>
+                {/* <OptionForm onSubmit={this.onSubmit}>
 
-                </OptionForm>
+                </OptionForm> */}
+                <div>
+                    {this.onSend()}
+                </div>
             </div>
         )
     }
-
 }
 
-// const mapStateToProps = (state) => {
-//     return
-// }
+const mapStateToProps = (state) => {
+    return {
+        optionsResponse: state.feedback.optionsResponse
+    }
+}
 
-export default connect(null, {sendOptions}) (Send)
+export default connect(mapStateToProps, {sendOptions}) (Send)
