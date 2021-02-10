@@ -3,7 +3,8 @@ import feedback from '../apis/feedback'
 import {
     REGISTER_USER,
     LOGIN_USER,
-    SEND_OPTIONS
+    SEND_OPTIONS,
+    LOADING_STATE
 } from './types'
 
 export const registerUser = (formValues) => {
@@ -43,5 +44,11 @@ export const sendOptions = (formValues) => {
             }
         })
         dispatch({type: SEND_OPTIONS, payload: response.data})
+    }
+}
+
+export const isLoading = (value) => {
+    return async (dispatch, getState) => {
+        dispatch({type: LOADING_STATE, payload: value})
     }
 }

@@ -38,6 +38,17 @@ class OptionForm extends React.Component {
 
     render() {
         return (
+            <div>
+                <div>
+                    <h3 >
+                        Thank you for filling this out, it means a lot!
+                        <br>
+                        </br>
+                        Please select an option from the list and click the Submit button.
+                    </h3>
+                </div>
+                <br>
+                </br>
             <form onSubmit={this.onSubmit}>
                 <div className="radio">
                     <label>
@@ -53,19 +64,68 @@ class OptionForm extends React.Component {
                         Not enough experience
                     </label>
                 </div>
+                <br>
+                </br>
                 <div className="radio">
                     <label>
                         <input
                         type="radio"
-                        value="Option2"
-                        checked={this.state.selectedOption === 'Option2'}
+                        value="Wrong skill set"
+                        checked={this.state.selectedOption === 'Wrong skill set'}
                         onChange={this.onValueChange}
                         >
                             
                         </input>
-                        Option2
+                        Wrong skill set
                     </label>
                 </div>
+                <br>
+                </br>
+                <div className="radio">
+                    <label>
+                        <input
+                        type="radio"
+                        value="Wrong personality"
+                        checked={this.state.selectedOption === 'Wrong personality'}
+                        onChange={this.onValueChange}
+                        >
+                            
+                        </input>
+                        Wrong personality
+                    </label>
+                </div>
+                <br>
+                </br>
+                <div className="radio">
+                    <label>
+                        <input
+                        type="radio"
+                        value="Sloppy Application"
+                        checked={this.state.selectedOption === 'Sloppy Application'}
+                        onChange={this.onValueChange}
+                        >
+                            
+                        </input>
+                        Sloppy Application
+                    </label>
+                </div>
+                <br>
+                </br>
+                <div className="radio">
+                    <label>
+                        <input
+                        type="radio"
+                        value="General high quality applications by other people"
+                        checked={this.state.selectedOption === 'General high quality applications by other people'}
+                        onChange={this.onValueChange}
+                        >
+                            
+                        </input>
+                        General high quality applications by other people
+                    </label>
+                </div>
+                <br>
+                </br>
                 <div>
                     Selected option is : {this.state.selectedOption}
                 </div>
@@ -73,6 +133,7 @@ class OptionForm extends React.Component {
                     Submit
                 </button>
             </form>
+            </div>
         )
     }
 

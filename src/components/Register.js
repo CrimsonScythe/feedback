@@ -69,6 +69,25 @@ class Register extends React.Component {
         return(
         <div>
             <h3>
+            Tired of sending applications and not getting replies from recruitors?
+            <br>
+            </br>
+            Me too.
+            <br>
+            </br>
+            This is why I developed this app.
+            <br>
+            </br>
+            Please register using your email and you will receive a link. Paste it on your application and a recruitor 
+            can click on it to give feedback. Use the login form if you want to regenerate your link.
+            <br>
+            </br>
+            Please note: You will receive an email from <b>crimsonscythestudios@gmail.com</b> once a recruitor sends feedback.
+            <br>
+            </br>
+            I know. The site is ugly :)
+            </h3>
+            <h3>
                 Register
             </h3>
             <div>
