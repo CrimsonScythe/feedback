@@ -30,7 +30,7 @@ class Register extends React.Component {
                         </p>
                         
                         <div className="ui label">
-                        <div className="detail"> {this.props.registerResponse.feedbackurl}</div>
+                        <div className="detail"> https://d2h5dpbj64ntdw.cloudfront.net/{this.props.registerResponse.feedbackurl}</div>
                         </div>
                            
                        
@@ -75,7 +75,7 @@ class Register extends React.Component {
             Me too.
             <br>
             </br>
-            This is why I developed this app.
+            This is why I developed this web app.
             <br>
             </br>
             Please register using your email and you will receive a link. Paste it on your application and a recruitor 

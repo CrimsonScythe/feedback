@@ -32,6 +32,6 @@ yarn-error.log*
 # *.txt
 *.tar
 # *.csv
-
+*.db
 # ignore venv
 /env

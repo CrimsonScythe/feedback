@@ -35,12 +35,13 @@ export const loginUser = (formValues) => {
     }
 }
 
-export const sendOptions = (formValues) => {
+export const sendOptions = (formValues, user_id) => {
     return async (dispatch, getState) => {
         console.log(formValues)
         const response = await feedback.get('/send', {
             params: {
-                option: formValues  
+                option: formValues,
+                id: user_id
             }
         })
         dispatch({type: SEND_OPTIONS, payload: response.data})

@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 class Send extends React.Component {
 
     onSubmit = (formValues) => {
-        this.props.sendOptions(formValues)
+        this.props.sendOptions(formValues, (window.location.href.split("/")[4]) )
         this.props.isLoading(true)
     }
 

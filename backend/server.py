@@ -36,7 +36,7 @@ class Yser(db.Model):
 '''
 Register User
 '''
-@app.route('/register', methods=['GET', 'POST'])
+@app.route('/api/register', methods=['GET', 'POST'])
 def signup_user():
     # data = request.get_json()
     data = request.args
@@ -44,8 +44,8 @@ def signup_user():
     # hashed_email = generate_password_hash(data['email'], method='sha256')
     email = data['email']
     public_id = str(uuid.uuid4())
-    # url = f'192.168.0.1:5000/feedback/{public_id}'
-    url=f'https://feedback-react-flask.herokuapp.com/feedback/{public_id}'
+    url = f'feedback/{public_id}'
+    # url=f'https://feedback-react-flask.herokuapp.com/feedback/{public_id}'
     user = Yser(public_id=public_id, email=email ,url=url)
     db.session.add(user)
 
@@ -59,7 +59,7 @@ def signup_user():
 '''
 Login User
 '''
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/api/login', methods=['GET', 'POST'])
 def login_user():
     # data = request.get_json()
     data = request.args
@@ -87,10 +87,12 @@ def login_user():
 '''
 Send selected option to user
 '''
-@app.route('/send', methods=['GET', 'POST'])
+@app.route('/api/send', methods=['GET', 'POST'])
 def send():
 
-    obj1=Yser.query.filter_by(id=1).first()
+    data = request.args
+    
+    obj1=Yser.query.filter_by(public_id=data['id']).first()
     email=obj1.email
 
     print(email)
