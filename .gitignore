@@ -40,3 +40,6 @@ yarn-error.log*
 /*.sh
 
 *Dockerrun.aws.json
+
+# ignore backend for now
+/backend
